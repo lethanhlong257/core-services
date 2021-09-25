@@ -1,10 +1,12 @@
+import {Sequelize} from 'sequelize'
+import path from 'path'
+import Product from './product'
+
 import {
   database, dialect, logging,
   username, password, pool,
   host, port, statementTimeout
 } from '../config'
-
-import * as kfs from '../services/kfs'
 
 const db = new Sequelize(database, username, password, {
   host, port, dialect, logging, pool,
@@ -17,11 +19,6 @@ const db = new Sequelize(database, username, password, {
   define: {} // global options
 })
 
-const modelDir = path.join(__dirname, '.')
-const models = kfs.requireDir(modelDir, ['index.js', 'config.js'], db)
-
-for (const model of models) {
-  db[model.name] = model
-}
+db['Product'] = Product(db)
 
 export default db
