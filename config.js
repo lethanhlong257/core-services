@@ -4,7 +4,7 @@ export const username = process.env.DB_USERNAME || null
 export const password = process.env.DB_PASSWORD || null
 export const host = process.env.DB_HOST || 'localhost'
 export const port = process.env.DB_PORT || 5432
-export const database = process.env.DB_NAME || 'kobiton'
+export const database = process.env.DB_NAME || 'icommerce'
 
 /**
  * These params are optional

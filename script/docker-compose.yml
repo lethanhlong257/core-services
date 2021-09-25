@@ -1,0 +1,26 @@
+version: '2'
+services:
+#######################
+  # Launch Postgres
+  # See: https://hub.docker.com/_/postgres
+  #######################
+  postgres:
+    container_name: postgres2
+    image: postgres:12.8-alpine3.14
+    restart: unless-stopped
+    mem_limit: 1000000000 # 1GB
+    environment:
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_DB=${DB_NAME}
+      - PGDATA=/var/pgdata
+    ports:
+      - '5432:5432'
+    networks:
+      - icommerce_local_network
+    volumes:
+      - ./data/postgres-12.8/:/var/pgdata/
+    command: ["-c", "listen_addresses=0.0.0.0"]
+networks:
+  icommerce_local_network:
+    external: true
