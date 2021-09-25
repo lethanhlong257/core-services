@@ -2,7 +2,7 @@ import {
   database, dialect, logging,
   username, password, pool,
   host, port, statementTimeout
-} from './config'
+} from '../config'
 
 import * as kfs from '../services/kfs'
 
