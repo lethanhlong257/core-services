@@ -1,7 +1,5 @@
-import uuid from 'node-uuid'
 import path from 'path'
 import BPromise from 'bluebird'
-import del from 'del'
 
 const fs = BPromise.promisifyAll(require('fs'))
 
