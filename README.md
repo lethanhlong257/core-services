@@ -28,7 +28,7 @@ bash ./start.sh
 # After this command, your postgres database was add in to the docker
 ```
 
-- Back to the rooth and execute the command
+- Back to the root directory and execute the command
 
 ```bash
   bash ./mirgrate.sh
